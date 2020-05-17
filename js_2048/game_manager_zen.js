@@ -122,7 +122,7 @@ GameManager.prototype.addRandomTile = function () {
       check(0, -1, 0, -1);
       check(0, 1, 0, 1);
 
-      if (bvalue == 13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084096) {bvalue = Math.floor(Math.random() * 10);}
+      if (bvalue == 13407807929942597099574024998205846127479365820592393377723561443721764030073546976801874298166903427690031858186486050853753882811946569946433649006084096) {bvalue = 2 + Math.floor(this.score / 50);}
     }
 
     var tile = new Tile(bcell, bvalue);
@@ -236,6 +236,8 @@ GameManager.prototype.move = function (direction) {
   });
 
   if (moved) {
+    this.addRandomTile();
+    this.addRandomTile();
     this.addRandomTile();
 
     if (!this.movesAvailable()) {
